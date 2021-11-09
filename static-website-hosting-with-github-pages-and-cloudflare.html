@@ -1,0 +1,72 @@
+<html lang="en"></html>
+    <head>
+        <title>Static website hosting with GitHub Pages and Cloudflare DNS</title>
+        <style>
+            .hl {
+                color: #F00;
+            }
+        </style>
+    </head>
+    <body>
+
+<pre>
+<a href="index.html">Harri Mähönen</a> <span class="hl">#</span> a .plan for software engineer
+
+
+
+<strong>STATIC WEBSITE HOSTING WITH GITHUB PAGES AND CLOUDFLARE DNS</strong>
+
+November 9th, 2021
+
+I have had a placeholder text on my domain mahonen.org for over a decade. I
+have hosted it always on virtual private servers (VPS) in the hopes that I can
+run my own personal projects there. I never have. The last time I logged to the
+VPS was over a year ago.
+
+My requirements were simple. I would like to:
+
+- Edit my website on my laptop with any tools I prefer
+- Use a custom domain
+- Have SSL work out of the box
+- Publish easily
+
+I searched around Hacker News (my go to place) and found a <a href="https://news.ycombinator.com/item?id=26594242">thread</a> of cheap
+static hosting with custom domain.
+
+The solution is perfect:
+
+- Cloudflare DNS
+- GitHub Pages for static hosting with custom domain support.
+- Free as in beer.
+
+First I created GitHub Pages by:
+
+1. Making a special public repository with my username. If your username is
+   foobar, create a repository with name foobar.
+
+2. Configuring Pages for the repository by going to Settings. I modified the
+   branch to master instead of main and added a custom domain
+   (ie. www.mydomain.com).
+
+3. Set up a repository for pages and made a simple index.html. Push it to the
+   repository.
+
+4. Access your site via: &lt;username&gt;.github.io/&lt;username&gt;/
+
+Then, I configured Cloudflare DNS by:
+
+1. Adding a new domain. Cloudflare helpfully imported all my DNS records.
+
+2. Removing unnecessary entries.
+
+3. Created a new CNAME pointing to &lt;username&gt;.github.io
+
+And finally I configured Cloudflare's nameservers to my domain registrar
+(Namecheap).
+
+It works beautifully. I can just edit my site or generate it with any static
+site generator and publishing changes is just a <strong>git push</strong> away. 
+</pre>
+
+    </body>
+</html>
